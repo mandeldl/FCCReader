@@ -20,5 +20,10 @@
     "inquirer": "^3.0.6",
     "opener": "^1.4.3",
     "x-ray": "^2.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
