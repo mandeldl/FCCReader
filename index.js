@@ -11,4 +11,21 @@ x('http://medium.freecodecamp.com/',
 		[{
 			title: 'h3',
 			url: '.js-trackedPost > a@href'
-		}])((err, data) => console.log(data));
+		}])
+	(function (err, data) {
+		const siteChoices = data.map(i => i.title);
+		const question = {
+	 		type: 'list',
+	 		name: 'website',
+	 		message: 'Pick a website',
+	 		choices: siteChoices
+	 		// when: (answer) => data.filter( i => answer === i.title)
+	 	}
+
+		inquirer.prompt(question)
+			.then(function (answer) {
+		 		const website = data.filter(i => i.title === answer.website)[0];
+		 		console.log(`Opening "${website.title}"...`);
+		 		opener(website.url);
+		 	});
+	});
